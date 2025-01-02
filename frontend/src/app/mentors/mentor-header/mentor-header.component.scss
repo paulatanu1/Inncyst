@@ -1,3 +1,13 @@
+nav {
+
+    background-color: #e8ebed;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+
+}
+
 .form-inline {
     position: relative;
     padding: 0 0 12px;
@@ -11,12 +21,58 @@
         align-items: center;
         justify-content: center;
         gap: 7px;
+        margin-right: 6rem;
+
+        .view-rqst {
+
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            color: #fff;
+            background: #000;
+            border-radius: 12px;
+            padding: 0px 15px;
+
+        }
+
+        ::ng-deep.mat-button-wrapper {
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+
+            i {
+                background: #fff;
+                padding: 10px;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                display: grid;
+                place-content: center;
+
+                // &:hover .mat-dropdown-menu {
+                //     opacity: 1 !important;
+                //     visibility: visible !important;
+                //     transform: translateY(0);
+                // }
+            }
+
+            .fa-noti {
+
+                background-color: #000;
+                color: #fff !important;
+            }
+
+        }
+
+
     }
 
     .mat-dropdown-menu {
         position: absolute;
-        top: 32px;
-        right: 0;
+        top: 50px;
+        right: -86px;
         width: 150px;
         padding: 10px 0;
         background: #fff;
@@ -55,9 +111,9 @@
         }
     }
 
-    &:hover .mat-dropdown-menu {
-        opacity: 1;
+    .mat-dropdown-menu.visible {
         visibility: visible;
-        transform: translateY(0);
+        opacity: 1;
     }
+
 }

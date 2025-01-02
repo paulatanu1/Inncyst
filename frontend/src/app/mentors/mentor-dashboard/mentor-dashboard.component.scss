@@ -1,3 +1,318 @@
 * {
-    font-family: "Poppins", sans-serif !important;
+    font-family: "Lato", serif;
+}
+
+input:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+//Supriya
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+    transition-duration: 5ms;
+    margin: 2px 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e8e8e8;
+}
+
+
+
+.dashboard-wrapper {
+
+    background-color: #e8ebed;
+    padding-top: 5rem;
+
+    .is-dashboard-mentor {
+        height: calc(100vh - 100%);
+        padding: 2rem;
+
+        .row {
+
+            row-gap: 1.7rem;
+
+
+
+            canvas {
+                width: 23vw;
+                height: 52vh !important;
+                object-fit: contain;
+            }
+
+            .labelBox-chart {
+
+                border-radius: 12px;
+                padding: 1rem;
+                box-shadow: none;
+                height: auto;
+                min-height: 400px;
+
+                mat-card-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    mat-card-title {
+                        margin-bottom: 1rem;
+                        font-size: 1.4rem;
+                        font-weight: 600;
+
+                        p {
+
+                            font-size: 0.8rem;
+                            line-height: 1.4;
+                            font-weight: 300;
+                            padding-top: 10px;
+
+                        }
+                    }
+
+                    mat-form-field {
+                        border: 1px solid #c0c0c0;
+                        border-radius: 12px;
+                        padding: 5px 10px;
+                        font-size: 0.8rem;
+                        font-weight: 200;
+
+                        ::ng-deep.mat-form-field-wrapper {
+                            padding-bottom: 0;
+
+                            .mat-form-field-infix {
+                                border-top: 0;
+                                background: rgb(146, 145, 145)0c0;
+
+                                .mat-form-field-label {
+                                    transform: none;
+                                    font-weight: 400;
+                                    color: #a1a1a1;
+                                    font-size: 0.8rem;
+                                }
+
+
+                            }
+
+                            .mat-form-field-underline {
+                                opacity: 0;
+                            }
+                        }
+                    }
+                }
+
+                mat-card-content {
+
+                    padding: 1rem 0;
+
+                    p:first-child {
+
+                        font-size: 0.8rem;
+                        padding-left: 1rem;
+
+                    }
+
+                    mat-form-field {
+                        border: 1px solid #c0c0c0;
+                        border-radius: 12px;
+                        padding: 5px 10px;
+                        font-size: 0.8rem;
+                        font-weight: 200;
+                        width: 90px;
+
+                        ::ng-deep.mat-form-field-wrapper {
+                            padding-bottom: 0;
+
+                            .mat-form-field-infix {
+                                border-top: 0;
+                                background: rgb(146, 145, 145)0c0;
+
+                                .mat-form-field-label {
+                                    transform: none;
+                                    font-weight: 400;
+                                    color: #a1a1a1;
+                                    font-size: 0.8rem;
+                                }
+
+
+                            }
+
+                            .mat-form-field-underline {
+                                opacity: 0;
+                            }
+                        }
+                    }
+
+                    .notification-list {
+
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        padding-top: 2rem;
+
+                        p {
+
+                            color: #959595;
+                            font-weight: 400;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+
+                        }
+
+                    }
+
+                    .avail-list {
+
+                        height: 444px;
+                        overflow-y: auto;
+                        padding: 1rem;
+                        border-bottom: 1px solid #acb6bd;
+
+                        .list {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+                            justify-content: space-between;
+                            margin-bottom: 2rem;
+
+                            p {
+                                margin-bottom: 0;
+                            }
+
+                            .date-range {
+                                display: flex;
+                                align-items: center;
+                                gap: 1rem;
+                            }
+
+                            .unavail-input {
+
+                                width: 100%;
+
+                                input {
+                                    width: 100%;
+                                    background: #fff;
+                                    font-size: 0.8rem;
+                                    border-radius: 10px;
+                                    border: 0;
+                                    margin-left: auto;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    .avail-action-btns {
+
+                        width: 100%;
+
+                        button.btn-save {
+                            background-color: #000;
+                            color: #fff;
+                        }
+
+                    }
+
+
+                }
+
+                mat-slide-toggle.mat-checked {
+
+                    ::ng-deep.mat-slide-toggle-bar {
+
+                        background-color: rgb(105 165 242 / 54%);
+
+                        .mat-slide-toggle-thumb {
+
+                            background-color: #003060;
+
+
+                        }
+
+                        .mat-ripple-element {
+
+                            background-color: #3584d3ec;
+
+                        }
+
+                    }
+
+                }
+            }
+
+            .height-custom {
+                min-height: 624px;
+            }
+
+
+            .chart {
+                margin: 2rem auto;
+            }
+
+            .add-mentor-profile {
+
+                button {
+
+                    background: #000;
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 12px;
+                    color: #fff;
+                    font-weight: 600;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    transition: 0.3s ease-in-out;
+
+                    ::ng-deep.mat-button-wrapper {
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 1rem;
+
+                    }
+
+
+                    &:hover {
+
+                        transform: scale(0.95);
+                    }
+
+                }
+
+
+
+            }
+
+        }
+
+
+    }
+
+}
+
+
+
+
+::ng-deep.mat-select-panel-wrap {
+    position: relative;
+    top: 3rem;
 }

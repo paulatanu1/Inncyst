@@ -1,4 +1,210 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
 <app-mentor-header></app-mentor-header>
+
+<div class="dashboard-wrapper">
+  <div class="container-fluid">
+    <div class="is-dashboard-mentor">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-12 col-sm-12">
+          <mat-card class="labelBox-chart py-5" appearance="outlined">
+            <mat-card-content>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 col-sm-12">
+                  <!-- earnings -->
+                  <mat-card class="labelBox-chart pt-0 border-right rounded-0" appearance="outlined">
+                    <mat-card-header>
+                      <mat-card-title>
+                        Duration of Collaboration
+                        <p>
+                          The duration of mentorship is tailored to the needs of
+                          the mentee, typically spanning a few months to a year.
+                        </p>
+                      </mat-card-title>
+
+                      <!-- <div class="earning-filter">
+                  <mat-form-field>
+                    <mat-label>Select an option</mat-label>
+                    <mat-select>
+                      <mat-option value="option1">Total Earnings</mat-option>
+                      <mat-option value="option2">Monthly Earnings</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div> -->
+                    </mat-card-header>
+                    <mat-card-content>
+                      <canvas class="chart barchart-earning" baseChart [data]="barChartData" [options]="barChartOptions"
+                        [plugins]="barChartPlugins" [legend]="barChartLegend" [type]="'bar'"></canvas>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 col-sm-12">
+                  <!-- active nentee -->
+                  <mat-card class="labelBox-chart pt-0" appearance="outlined">
+                    <mat-card-header>
+                      <mat-card-title>
+                        Approached and Guided/Guiding
+                        <p>
+                          Approached and guided mentees through tailored advice,
+                          fostering professional growth and skill development.
+                        </p>
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <canvas class="chart piechart-mentee" object-fit="contain" baseChart [type]="'pie'"
+                        [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
+                        [plugins]="pieChartPlugins" [legend]="pieChartLegend"></canvas>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 col-sm-12">
+          <div class="add-mentor-profile">
+            <button mat-button (click)="openDialogAddMentor()">
+              <i class="fa fa-plus"></i>
+              Add Mentor Profile
+            </button>
+          </div>
+          <!-- Notification -->
+          <!-- <mat-card class="labelBox-chart" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>
+                Notifications
+                <span class="text-danger text-lg text-bold">*</span>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="notification-list">
+                <p>
+                  <iframe
+                    src="https://lottie.host/embed/32cb8674-edd5-44d9-b6fd-442645e8c7d4/prsy1ZP0Qq.lottie"
+                  ></iframe>
+                  No Notification Found..
+                </p>
+              </div>
+            </mat-card-content>
+          </mat-card> -->
+          <!-- Avalability -->
+          <mat-card class="labelBox-chart bg-transparent border border-dark-subtle mt-4 height-custom"
+            appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>
+                Availability
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                You will receive bookings in your local timezone.
+              </p>
+              <div class="avail-list">
+                <div class="list">
+                  <div class="switch-block">
+                    <p>
+                      <mat-slide-toggle>Mon</mat-slide-toggle>
+                    </p>
+                  </div>
+                  <div class="date-range">
+                    <mat-form-field>
+                      <mat-label>From</mat-label>
+                      <mat-select>
+                        <mat-option value="option1">00:01</mat-option>
+                        <mat-option value="option2">
+                          03:45
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>To</mat-label>
+                      <mat-select>
+                        <mat-option value="option1">00:01</mat-option>
+                        <mat-option value="option2">
+                          03:45
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="action-btns">
+                    <i class="far fa-user" aria-hidden="true" style="font-size: 1.2rem;"></i>
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="switch-block">
+                    <p>
+                      <mat-slide-toggle>Tue</mat-slide-toggle>
+                    </p>
+                  </div>
+                  <div class="unavail-input">
+                    <input type="text" placeholder="Unavailable" class="form-control" disabled />
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="switch-block">
+                    <p>
+                      <mat-slide-toggle>Wed</mat-slide-toggle>
+                    </p>
+                  </div>
+                  <div class="unavail-input">
+                    <input type="text" placeholder="Unavailable" class="form-control" disabled />
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="switch-block">
+                    <p>
+                      <mat-slide-toggle>Thu</mat-slide-toggle>
+                    </p>
+                  </div>
+                  <div class="unavail-input">
+                    <input type="text" placeholder="Unavailable" class="form-control" disabled />
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="switch-block">
+                    <p>
+                      <mat-slide-toggle>Fri</mat-slide-toggle>
+                    </p>
+                  </div>
+                  <div class="unavail-input">
+                    <input type="text" placeholder="Unavailable" class="form-control" disabled />
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="switch-block">
+                    <p>
+                      <mat-slide-toggle>Sat</mat-slide-toggle>
+                    </p>
+                  </div>
+                  <div class="unavail-input">
+                    <input type="text" placeholder="Unavailable" class="form-control" disabled />
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="switch-block">
+                    <p>
+                      <mat-slide-toggle>Sun</mat-slide-toggle>
+                    </p>
+                  </div>
+                  <div class="unavail-input">
+                    <input type="text" placeholder="Unavailable" class="form-control" disabled />
+                  </div>
+                </div>
+              </div>
+              <div class="btns avail-action-btns float-right d-flex gap-2 mt-3">
+                <button class="btn btn-sm btn-cancel w-100">Cancel</button>
+                <button class="btn btn-sm btn-save w-100">Save</button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <app-mentor-footer></app-mentor-footer>
 

@@ -1,0 +1,185 @@
+.form-section {
+
+    width: 500px;
+    padding: 5px 1rem;
+
+    input,
+    textarea,
+    select {
+
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border-color: #979797;
+        }
+
+        &::placeholder {
+            opacity: 0.5;
+        }
+
+
+    }
+
+    .form-control {
+
+        font-size: 0.85rem;
+        font-weight: 600;
+
+    }
+
+    label {
+        font-weight: 600;
+        color: #808080;
+        font-size: 0.8rem;
+    }
+
+    span.alert {
+        font-weight: 300;
+        font-size: 0.7rem;
+        padding: 0;
+    }
+
+    .about-details {
+        height: auto;
+        max-height: 510px;
+        padding: 5px 1rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        hr {
+            display: none;
+        }
+
+        .form-input {
+
+            margin-bottom: 7px;
+
+
+
+
+
+        }
+
+
+        .box {
+            border: 1px solid rgba(171, 171, 171, 0.97);
+            border-radius: 12px;
+            padding: 15px;
+            width: 100%;
+            margin-bottom: 15px;
+
+            .persona-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h4 {
+
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    margin-bottom: 0;
+
+                }
+
+            }
+
+            p {
+
+                font-size: 0.8rem;
+                font-weight: 300;
+                line-height: 1.5;
+                margin-top: 15px;
+            }
+        }
+
+        ul {
+
+            background: #046fd93b;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+
+            p {
+
+                font-weight: 700;
+
+            }
+
+            li {
+
+                list-style-type: disc;
+                margin-left: 13px;
+                font-weight: 400;
+                font-size: 0.8rem;
+                margin-bottom: 10px;
+
+            }
+
+        }
+    }
+
+
+
+    .head {
+
+        position: relative;
+        top: -13px;
+        padding-left: 19px;
+        background: #fff;
+        z-index: 9;
+        height: 42px;
+
+        h3 {
+
+            font-size: 1.5rem;
+            font-weight: 600;
+
+        }
+
+    }
+
+    .final-submission-btn {
+        margin: 16px 17px;
+
+        .btn-submit {
+            background-color: #000;
+            color: #fff;
+        }
+
+    }
+
+    p {
+
+        font-weight: 400;
+
+        mat-slide-toggle.checked {
+
+
+            ::ng-deep.mat-slide-toggle-bar {
+
+                background-color: rgb(105 165 242 / 54%);
+
+                .mat-slide-toggle-thumb {
+
+                    background-color: #003060;
+
+
+                }
+
+
+
+                .mat-ripple-element {
+
+                    background-color: #3584d3ec;
+
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+}

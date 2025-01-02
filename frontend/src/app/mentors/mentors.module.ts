@@ -7,6 +7,18 @@ import { MentorsFormComponent } from './mentors-form/mentors-form.component';
 import { MentorDashboardComponent } from './mentor-dashboard/mentor-dashboard.component';
 import { MentorHeaderComponent } from './mentor-header/mentor-header.component';
 import { MentorFooterComponent } from './mentor-footer/mentor-footer.component';
+import { NgChartsModule } from 'ng2-charts';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTabsModule } from '@angular/material/tabs';
+import { DialogMentorProfile } from './mentor-dashboard/mentor-add-profile.component';
+import { DialogAddExperienceComponent } from './mentor-dashboard/add-experience-dialog';
+import { ViewRequestComponent } from './view-request/view-request.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +27,23 @@ import { MentorFooterComponent } from './mentor-footer/mentor-footer.component';
     MentorDashboardComponent,
     MentorHeaderComponent,
     MentorFooterComponent,
+    DialogMentorProfile,
+    DialogAddExperienceComponent,
+    ViewRequestComponent,
   ],
-  imports: [CommonModule, MentorsRoutingModule, MatIconModule],
+  imports: [
+    CommonModule,
+    MentorsRoutingModule,
+    MatIconModule,
+    NgChartsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatTabsModule,
+    MatInputModule,
+    MatDatepickerModule,
+  ],
 })
 export class MentorsModule {}

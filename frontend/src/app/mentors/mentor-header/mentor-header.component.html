@@ -1,29 +1,34 @@
-<nav class="navbar navbar-light bg-light justify-content-between px-4">
+<nav class="navbar justify-content-between px-4">
   <a [routerLink]="['/home']" class="navbar-brand" href="#">
-    <img
-      src="https://inncyst-staging-bucket.s3.ap-south-1.amazonaws.com/inncyst-logo1.png"
-      width="130px"
-      height="50px"
-      alt=""
-    />
+    <img src="https://inncyst-staging-bucket.s3.ap-south-1.amazonaws.com/inncyst-logo1.png" width="130px" height="50px"
+      alt="" />
   </a>
+
   <form class="form-inline">
     <button mat-icon-button class="user-icon">
-      <i class="far fa-user" aria-hidden="true" style="font-size: 1.2rem;"></i>
-      <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+      <button class="view-rqst" mat-menu-item [routerLink]="['/mentors/view-request']">
+        <i class="far fa-bell fa-noti" aria-hidden="true" style="font-size: 1rem;"></i>
+        View Request
+      </button>
+      <div class="dropdown-container" (mouseover)="showMenu()" (mouseleave)="hideMenu()">
+        <i class="far fa-user fa-user-hover" aria-hidden="true" style="font-size: 1rem;"></i>
+
+        <ul class="mat-dropdown-menu" [ngClass]="{ visible: isMenuVisible }">
+          <li>
+            <a class="mat-dropdown-item">
+              View Profile
+            </a>
+          </li>
+          <hr />
+          <li>
+            <a class="mat-dropdown-item">
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i> -->
     </button>
-    <ul class="mat-dropdown-menu">
-      <li>
-        <a class="mat-dropdown-item" href="#">
-          View Profile
-        </a>
-      </li>
-      <hr />
-      <li>
-        <a class="mat-dropdown-item" href="#">
-          Logout
-        </a>
-      </li>
-    </ul>
   </form>
 </nav>

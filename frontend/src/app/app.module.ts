@@ -85,6 +85,7 @@ import { MobileVerificationComponent } from './share/mobile-verification/mobile-
     MatTabsModule,
   ],
   exports: [SharedModule, FormsModule, ReactiveFormsModule, NgOtpInputModule],
+
   providers: [
     SharedModule,
     LoginDetailsService,
@@ -96,6 +97,7 @@ import { MobileVerificationComponent } from './share/mobile-verification/mobile-
     NgOtpInputModule,
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
+
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
