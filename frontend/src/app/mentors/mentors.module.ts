@@ -8,6 +8,7 @@ import { MentorDashboardComponent } from './mentor-dashboard/mentor-dashboard.co
 import { MentorHeaderComponent } from './mentor-header/mentor-header.component';
 import { MentorFooterComponent } from './mentor-footer/mentor-footer.component';
 import { NgChartsModule } from 'ng2-charts';
+import { MatTableModule } from '@angular/material/table'; // For mat-table
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
@@ -19,6 +20,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { DialogMentorProfile } from './mentor-dashboard/mentor-add-profile.component';
 import { DialogAddExperienceComponent } from './mentor-dashboard/add-experience-dialog';
 import { ViewRequestComponent } from './view-request/view-request.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ViewRequestComponent } from './view-request/view-request.component';
     MatTabsModule,
     MatInputModule,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
   ],
 })
 export class MentorsModule {}

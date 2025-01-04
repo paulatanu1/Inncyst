@@ -69,6 +69,11 @@
             <button mat-button (click)="openDialogAddMentor()">
               <i class="fa fa-plus"></i>
               Add Mentor Profile
+
+              <!-- <mat-spinner class="white-spinner" [color]="spinnerColor" [diameter]="spinnerSize"></mat-spinner> -->
+
+
+
             </button>
           </div>
           <!-- Notification -->
@@ -112,7 +117,7 @@
                   <div class="date-range">
                     <mat-form-field>
                       <mat-label>From</mat-label>
-                      <mat-select>
+                      <mat-select class="w-100">
                         <mat-option value="option1">00:01</mat-option>
                         <mat-option value="option2">
                           03:45
@@ -121,16 +126,13 @@
                     </mat-form-field>
                     <mat-form-field>
                       <mat-label>To</mat-label>
-                      <mat-select>
+                      <mat-select class="w-100">
                         <mat-option value="option1">00:01</mat-option>
                         <mat-option value="option2">
                           03:45
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
-                  </div>
-                  <div class="action-btns">
-                    <i class="far fa-user" aria-hidden="true" style="font-size: 1.2rem;"></i>
                   </div>
                 </div>
                 <div class="list">

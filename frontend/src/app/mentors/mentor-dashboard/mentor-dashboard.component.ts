@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogMentorProfile } from './mentor-add-profile.component';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-mentor-dashboard',
@@ -9,6 +10,9 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
   styleUrls: ['./mentor-dashboard.component.scss'],
 })
 export class MentorDashboardComponent implements OnInit {
+  spinnerColor: string = 'white'; // Default color
+  spinnerSize: number = 20; // Default size
+
   public barChartLegend = true;
   public barChartPlugins = [];
 
@@ -37,6 +41,7 @@ export class MentorDashboardComponent implements OnInit {
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: false,
   };
+  white: any;
 
   constructor(public dialog: MatDialog) {}
 

@@ -10,7 +10,7 @@ input:focus {
 //Supriya
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,7 +21,7 @@ input:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: transparent;
+    background: #ccc;
     border-radius: 10px;
     transition-duration: 5ms;
     margin: 2px 4px;
@@ -197,6 +197,7 @@ input:focus {
                                 display: flex;
                                 align-items: center;
                                 gap: 1rem;
+                                width: 100%;
                             }
 
                             .unavail-input {
@@ -280,6 +281,15 @@ input:focus {
                     justify-content: center;
                     gap: 1rem;
                     transition: 0.3s ease-in-out;
+
+                    .white-spinner {
+                        color: #fff;
+                    }
+
+                    ::ng-deep.mat-progress-spinner circle,
+                    .mat-spinner circle {
+                        stroke: #fafbff;
+                    }
 
                     ::ng-deep.mat-button-wrapper {
 

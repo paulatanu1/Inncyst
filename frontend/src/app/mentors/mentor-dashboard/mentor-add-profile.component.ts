@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { DialogAddExperienceComponent } from './add-experience-dialog'; // Import second dialog component
+import { DialogAddExperienceComponent } from './add-experience-dialog';
 
 @Component({
   selector: 'mentor-add-profile',
@@ -10,10 +10,9 @@ import { DialogAddExperienceComponent } from './add-experience-dialog'; // Impor
 export class DialogMentorProfile {
   constructor(
     public dialogRef: MatDialogRef<DialogMentorProfile>,
-    public dialog: MatDialog // Inject MatDialog to open the second dialog
+    public dialog: MatDialog
   ) {}
 
-  // This function will open the second dialog for adding an experience
   openExperienceDialog() {
     const experienceDialogRef = this.dialog.open(DialogAddExperienceComponent);
 
