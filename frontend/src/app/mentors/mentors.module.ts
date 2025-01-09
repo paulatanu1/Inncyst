@@ -21,6 +21,7 @@ import { DialogMentorProfile } from './mentor-dashboard/mentor-add-profile.compo
 import { DialogAddExperienceComponent } from './mentor-dashboard/add-experience-dialog';
 import { ViewRequestComponent } from './view-request/view-request.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatDatepickerModule,
     MatProgressSpinnerModule,
     MatTableModule,
+    ReactiveFormsModule,
   ],
 })
 export class MentorsModule {}
