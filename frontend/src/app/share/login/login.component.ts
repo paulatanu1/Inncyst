@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
     this.options = [{ name: 'Select the option', code: '0' }];
 
     this.loginOptionType = [
-      { title: 'Student', code: 0 },
+      { title: 'candidate', code: 0 },
       { title: 'Industry', code: 1 },
     ];
   }
@@ -135,12 +135,13 @@ export class LoginComponent implements OnInit {
       // let userRole = this.loginForm.get('options')?.value;
       this.loginService.login(userEmail, password).subscribe({
         next: (res) => {
+          console.log(res,'login')
           this.otpVerifivation.loginflow.next(false);
           this.otpVerifivation.logoutSuccess.next(true);
           ls.set('id', res.data._id);
-          if (res.LOGIN_TYPE == 'student') {
+          if (res.LOGIN_TYPE == 'candidate') {
             this.router.navigateByUrl('jobs/posts');
-            ls.set('role', 'student');
+            ls.set('role', 'candidate');
 
             // this.router.navigate(['/jobs/internship']);
           } else if (res.LOGIN_TYPE == 'industry') {
@@ -293,7 +294,7 @@ export class LoginComponent implements OnInit {
     };
     this.loginService.socialLogin(payload).subscribe({
       next: (res) => {
-        console.log(res, 'resss');
+        console.log(res, 'resss 295');
         ls.set('role', this.selectedRole);
         ls.set('login_token', res.token);
         this.router.navigate(['/verify-phone']);
@@ -344,7 +345,7 @@ export class LoginComponent implements OnInit {
           };
           this.loginService.socialLogin(payload).subscribe({
             next: (res) => {
-              console.log(res, 'ressss');
+              console.log(res, 'ressss  347');
               ls.set('login_token', res.token);
               ls.set('role', res.data.role);
               this.socialAuth.socialData.next(res);
@@ -358,7 +359,7 @@ export class LoginComponent implements OnInit {
               if (res.data.phoneVerified) {
                 if (res.LOGIN_TYPE == 'candidate') {
                   this.router.navigateByUrl('jobs/posts');
-                  ls.set('role', 'student');
+                  ls.set('role', 'candidate');
 
                   // this.router.navigate(['/jobs/internship']);
                 } else if (res.LOGIN_TYPE == 'industry') {

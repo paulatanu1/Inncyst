@@ -185,7 +185,7 @@ export class RegistrationTabComponent implements OnInit {
       form.markAllAsTouched(); // Mark all fields as touched to show validation errors
       return;
     }
-
+console.log(form.value,this.activeTabName)
     // Extract the common form data fields
     const formData = form.value;
 
@@ -232,11 +232,12 @@ export class RegistrationTabComponent implements OnInit {
       )
       .subscribe({
         next: (response) => {
+          console.log(response,'235')
           response.role = this.activeTabName;
           this.reg.loginResponse.next(response);
           ls.set('user-email', response.data.email);
           ls.set('user-phone', response.data.phone);
-          ls.set('role', response.data.role);
+          ls.set('role', response.role);
           this.router.navigate(['/otp-verification']);
         },
         error: (error) => {},

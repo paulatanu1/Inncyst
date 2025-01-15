@@ -25,6 +25,7 @@ export class UserVerificationGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     //Allow access if userType = student
+    console.log(this.userType,'28',ls.get('role'))
     if (this.userType == 'candidate') {
       return true;
     } else {

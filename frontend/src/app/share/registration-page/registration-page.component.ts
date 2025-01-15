@@ -131,7 +131,7 @@ export class RegistrationPageComponent implements OnInit {
 
     this.registrationOption = [
       {
-        option: 'student',
+        option: 'candidate',
         id: 1,
       },
       {
@@ -167,7 +167,7 @@ export class RegistrationPageComponent implements OnInit {
         ],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-        options: ['student', [Validators.required]],
+        options: ['candidate', [Validators.required]],
         agree: [false, [Validators.required, Validators.requiredTrue]],
       },
       {
@@ -230,6 +230,9 @@ export class RegistrationPageComponent implements OnInit {
                   }
                 }
               }
+              else{
+                this.router.navigate(['/otp-verification']);
+              }
             }),
             catchError((err) => {
               // Handle errors within socialLogin
@@ -266,6 +269,7 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this,this.registerForm.value,'hhh')
     // console.log(this.registerForm.get('options')?.value);
     this.isSubmited = true;
     if (this.isSubmited && this.registerForm.valid) {
@@ -297,6 +301,7 @@ export class RegistrationPageComponent implements OnInit {
             ls.set('userName', name);
             ls.set('registerId', _id);
             ls.set('phone', phone);
+            console.log(this.userRegRole,300)
             ls.set('role', this.userRole);
             let severity = '';
             let summary = '';
@@ -414,7 +419,7 @@ export class RegistrationPageComponent implements OnInit {
           detail: res.message,
         });
         //set route logic for user
-        if (this.userRole === 'student') {
+        if (this.userRole === 'candidate') {
           this.router.navigate(['/jobs/posts']);
         } else if (this.userRole === 'industry') {
           this.router.navigate(['industry']);

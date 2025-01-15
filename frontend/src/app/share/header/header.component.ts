@@ -127,7 +127,7 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
       {
         label: 'As a Student',
         command: () => {
-          this.login('student');
+          this.login('candidate');
         },
       },
       {
@@ -147,13 +147,13 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
       // {name: 'Select the option', code: '0'},
       { optionName: 'Intern', code: '1' },
       { optionName: 'Job', code: '2' },
-      { optionName: 'Student', code: '3' },
+      { optionName: 'candidate', code: '3' },
       { optionName: 'Industry', code: '3' },
     ];
 
     this.registrationOption = [
       {
-        option: 'student',
+        option: 'candidate',
         id: 1,
       },
       {
@@ -459,7 +459,8 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
     });
   }
   login(type: string) {
-    if (type === 'student') {
+    console.log(type,'login type')
+    if (type === 'candidate') {
       this.registration = true;
       this.isStudent = true;
     } else {

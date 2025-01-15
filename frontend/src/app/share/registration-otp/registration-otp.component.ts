@@ -60,7 +60,7 @@ export class RegistrationOtpComponent implements OnInit {
   ) {
     this.userEmails = ls.get('user-email');
     this.userMobileNumber = ls.get('user-phone');
-
+console.log(this.role,'oootttppp',ls.get('role'),)
     this.verifyRegistration = this.fb.group({
       emailOtp: [null, [Validators.required, Validators.pattern(/^\d{4}$/)]],
       phoneOtp: [null, [Validators.required, Validators.pattern(/^\d{4}$/)]],
@@ -73,20 +73,21 @@ export class RegistrationOtpComponent implements OnInit {
 
   ngOnInit(): void {
     this.reg.loginResponse.subscribe({
-      next: (resp) => {
+      next: (resp:any) => {
         const response = resp as unknown as regResponse;
         this.regId = response.data._id;
-        console.log();
+        console.log(response,response.data);
         this.isPhoneVerify = response.data.phoneVerified;
         this.isEmailVerify = response.data.emailVerified;
         this.userEmails = response.data.email;
         this.userMobileNumber = response.data.phone;
-        this.role = response.data.role;
+        this.role = resp.role;
+        console.log(resp.role)
         console.log(
           this.isEmailVerify,
           'vvv',
           this.userEmails,
-          this.userMobileNumber
+          this.userMobileNumber,this.role
         );
       },
     });
@@ -141,6 +142,7 @@ export class RegistrationOtpComponent implements OnInit {
   }
 
   onSubmitOtp() {
+    console.log('jjj')
     this.ngOtpInput1.otpForm.disable();
     this.ngOtpInput2.otpForm.disable();
     console.log(this.verifyRegistration.value);
@@ -155,6 +157,7 @@ export class RegistrationOtpComponent implements OnInit {
       };
       this.otpVerifivation.otpSubmit(otpset).subscribe({
         next: (res) => {
+          console.log(res,'oooo')
           debugger;
           ls.set('token', res.token);
           ls.set('user-verified', res.data.verified);
@@ -166,6 +169,7 @@ export class RegistrationOtpComponent implements OnInit {
           this.ngOtpInput1.setValue(null);
           this.ngOtpInput2.setValue(null);
           console.log(this.role);
+          this.role='candidate'
           switch (this.role) {
             case 'college':
               this._toast.showToaster.next({
@@ -174,8 +178,9 @@ export class RegistrationOtpComponent implements OnInit {
                 detail: 'Please try again!',
               });
               break;
-            case 'student':
-              this.router.navigateByUrl('/jobs-internships');
+            case 'candidate':
+              console.log('ppppppppppppppp')
+              this.router.navigateByUrl('/jobs/posts');
               break;
             case 'company':
               this.router.navigateByUrl('/industry');
