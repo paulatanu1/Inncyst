@@ -14,7 +14,7 @@ import { OtpVerificationService } from './otp-verification.service';
 import ls from 'localstorage-slim';
 import { HeaderService } from '../module-service/header.service';
 import { ToastServiceService } from 'src/app/service/toast-service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegistrationService } from 'src/app/registration-service/registration.service';
 import { regResponse } from '../models/register.model';
 import { AuthService } from '@auth0/auth0-angular';
@@ -48,6 +48,7 @@ export class RegistrationOtpComponent implements OnInit {
   userEmails: string | null;
   userMobileNumber: string | null;
   role: string = '';
+  authMobileVerified=false
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -56,7 +57,7 @@ export class RegistrationOtpComponent implements OnInit {
     private _toast: ToastServiceService,
     private reg: RegistrationService,
     private auth: SocialAuthService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,private activatedRoute:ActivatedRoute
   ) {
     this.userEmails = ls.get('user-email');
     this.userMobileNumber = ls.get('user-phone');
@@ -65,6 +66,13 @@ console.log(this.role,'oootttppp',ls.get('role'),)
       emailOtp: [null, [Validators.required, Validators.pattern(/^\d{4}$/)]],
       phoneOtp: [null, [Validators.required, Validators.pattern(/^\d{4}$/)]],
     });
+
+    //
+    this.activatedRoute.queryParamMap.subscribe(params => { 
+     this.authMobileVerified = !!params.get('phoneverified'); 
+      console.log(this.authMobileVerified); // This should now print 'true'
+    });
+  
   }
 
   ngAfterViewInit() {
@@ -74,6 +82,7 @@ console.log(this.role,'oootttppp',ls.get('role'),)
   ngOnInit(): void {
     this.reg.loginResponse.subscribe({
       next: (resp:any) => {
+        console.log(resp)
         const response = resp as unknown as regResponse;
         this.regId = response.data._id;
         console.log(response,response.data);

@@ -40,6 +40,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CareerComponent } from './share/product-showcase/career/career.component';
 import { CallbackComponent } from './share/callback/callback.component';
 import { MobileVerificationComponent } from './share/mobile-verification/mobile-verification.component';
+import { MobileRegistrationComponent } from './share/mobile-registration/mobile-registration.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MobileVerificationComponent } from './share/mobile-verification/mobile-
     CareerComponent,
     CallbackComponent,
     MobileVerificationComponent,
+    MobileRegistrationComponent,
   ],
   imports: [
     BrowserModule,

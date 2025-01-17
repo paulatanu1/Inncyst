@@ -5,6 +5,7 @@ import { OtpVerificationService } from '../registration-otp/otp-verification.ser
 import { SocialAuthService } from 'src/app/service/social-auth.service';
 import { RegistrationService } from 'src/app/registration-service/registration.service';
 import { ToastServiceService } from 'src/app/service/toast-service.service';
+import { LoginApiService } from '../login/login-api.service';
 export interface Iglobaldata {
   success: boolean;
   data: Data;
@@ -69,7 +70,7 @@ export class MobileVerificationComponent implements OnInit {
     private auth: SocialAuthService,
     private reg: RegistrationService,
     private _toast: ToastServiceService,
-    private router: Router
+    private router: Router,private loginService:LoginApiService
   ) {
     this.verifyOTP = this.fb.group({
       phoneOtp: [null, [Validators.required, Validators.pattern(/^\d{4}$/)]],
@@ -94,10 +95,12 @@ export class MobileVerificationComponent implements OnInit {
           if (response.data.phoneVerified === false) {
           }
         } else {
-          this.auth.logout();
+          // this.auth.logout();
         }
       },
     });
+
+    
   }
 
   onPhoneOtpChange(event: any) {
@@ -147,6 +150,7 @@ export class MobileVerificationComponent implements OnInit {
       .verifyPhone(this.verifyPhoneNumber.value['phoneNumber'])
       .subscribe({
         next: (res) => {
+          console.log(res)
           this.mobileVerification = false;
         },
         error: (err) => {

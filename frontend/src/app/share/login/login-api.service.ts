@@ -65,6 +65,14 @@ export class LoginApiService {
     return this.api.ApiCallWithLocalization(data, url, 'post');
   }
 
+  verifySocialPhone(payload:any){
+    let url='auth/verify-social-phone';
+   let data={
+      phone:payload.phone
+    }
+    return this.api.ApiCallWithLocalization(data,url,'post')
+  }
+
   forgetpassword(email: string) {
     this.url = '/auth/forget-password';
     const form_data: any = new Object();

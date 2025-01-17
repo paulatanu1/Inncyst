@@ -231,7 +231,9 @@ export class RegistrationPageComponent implements OnInit {
                 }
               }
               else{
-                this.router.navigate(['/otp-verification']);
+               
+                this.router.navigate(['/verify-phone']);
+                
               }
             }),
             catchError((err) => {
