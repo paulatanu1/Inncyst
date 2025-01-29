@@ -178,7 +178,7 @@ console.log(this.role,'oootttppp',ls.get('role'),)
           this.ngOtpInput1.setValue(null);
           this.ngOtpInput2.setValue(null);
           console.log(this.role);
-          this.role='candidate'
+          // this.role='candidate'
           switch (this.role) {
             case 'college':
               this._toast.showToaster.next({
@@ -188,19 +188,19 @@ console.log(this.role,'oootttppp',ls.get('role'),)
               });
               break;
             case 'candidate':
-              console.log('ppppppppppppppp')
+             
               this.router.navigateByUrl('/jobs/posts');
               break;
             case 'company':
               this.router.navigateByUrl('/industry');
               break;
             case 'mentor':
-              this._toast.showToaster.next({
-                severity: 'warning',
-                summary: 'Working on it',
-                detail: 'Please try again!',
-              });
-              // this.router.navigateByUrl('/mentor');
+              // this._toast.showToaster.next({
+              //   severity: 'warning',
+              //   summary: 'Working on it',
+              //   detail: 'Please try again!',
+              // });
+              this.router.navigateByUrl('/mentors/mentors-details');
               break;
           }
         },
